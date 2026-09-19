@@ -14,6 +14,8 @@ const BLANK = {
   cc_payment: 0,
   uber_payment: 0,
   rocket_payment: 0,
+  paypay_payment: 0,
+  damaecan_payment: 0,
   notes: '',
 }
 
@@ -54,6 +56,8 @@ export default function DailySalesForm({ entryId, onSaved }) {
       cc_payment: parseFloat(form.cc_payment) || 0,
       uber_payment: parseFloat(form.uber_payment) || 0,
       rocket_payment: parseFloat(form.rocket_payment) || 0,
+      paypay_payment: parseFloat(form.paypay_payment) || 0,
+      damaecan_payment: parseFloat(form.damaecan_payment) || 0,
       notes: form.notes,
     }
     try {
@@ -113,9 +117,19 @@ export default function DailySalesForm({ entryId, onSaved }) {
             <input type="number" step="0.01" value={form.uber_payment} onChange={(e) => set('uber_payment', e.target.value)} />
           </div>
         </div>
-        <div className="field">
-          <label>Rocket (¥)</label>
-          <input type="number" step="0.01" value={form.rocket_payment} onChange={(e) => set('rocket_payment', e.target.value)} />
+        <div className="field-row3">
+          <div className="field">
+            <label>Rocket (¥)</label>
+            <input type="number" step="0.01" value={form.rocket_payment} onChange={(e) => set('rocket_payment', e.target.value)} />
+          </div>
+          <div className="field">
+            <label>PayPay (¥)</label>
+            <input type="number" step="0.01" value={form.paypay_payment} onChange={(e) => set('paypay_payment', e.target.value)} />
+          </div>
+          <div className="field">
+            <label>DamaeCan (¥)</label>
+            <input type="number" step="0.01" value={form.damaecan_payment} onChange={(e) => set('damaecan_payment', e.target.value)} />
+          </div>
         </div>
         <div className="field">
           <label>Notes</label>

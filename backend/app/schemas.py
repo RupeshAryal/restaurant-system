@@ -38,6 +38,8 @@ class DailyEntryBase(BaseModel):
     cc_payment: float = 0
     uber_payment: float = 0
     rocket_payment: float = 0
+    paypay_payment: float = 0
+    damaecan_payment: float = 0
     notes: Optional[str] = None
 
 
@@ -56,6 +58,8 @@ class DailyEntryUpdate(BaseModel):
     cc_payment: Optional[float] = None
     uber_payment: Optional[float] = None
     rocket_payment: Optional[float] = None
+    paypay_payment: Optional[float] = None
+    damaecan_payment: Optional[float] = None
     notes: Optional[str] = None
 
 

@@ -81,7 +81,7 @@ export default function Income({ refreshKey, onDataChanged }) {
                 <th style={{ textAlign: 'right' }}>Dinner</th>
                 <th style={{ textAlign: 'right' }}>Total sales</th>
                 <th style={{ textAlign: 'right' }}>Guests</th>
-                <th>Payments (cash/card/uber/rocket)</th>
+                <th>Payments (cash/card/uber/rocket/paypay/damaecan)</th>
                 <th></th>
               </tr>
             </thead>
@@ -106,7 +106,7 @@ export default function Income({ refreshKey, onDataChanged }) {
                     {r.total_guests}
                   </td>
                   <td className="num" style={{ fontSize: 12, color: 'var(--text-dim)' }}>
-                    {fmt(r.cash_payment)} / {fmt(r.cc_payment)} / {fmt(r.uber_payment)} / {fmt(r.rocket_payment)}
+                    {fmt(r.cash_payment)} / {fmt(r.cc_payment)} / {fmt(r.uber_payment)} / {fmt(r.rocket_payment)} / {fmt(r.paypay_payment)} / {fmt(r.damaecan_payment)}
                   </td>
                   <td>
                     <button

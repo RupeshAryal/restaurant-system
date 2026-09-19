@@ -31,6 +31,8 @@ class DailyEntry(Base):
     cc_payment = Column(Float, default=0)
     uber_payment = Column(Float, default=0)
     rocket_payment = Column(Float, default=0)
+    paypay_payment = Column(Float, default=0)
+    damaecan_payment = Column(Float, default=0)
 
     notes = Column(String, nullable=True)
 

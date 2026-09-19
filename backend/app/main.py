@@ -11,9 +11,11 @@ from sqlalchemy.orm import Session
 from sqlalchemy import extract
 
 from . import models, schemas, auth
-from .database import engine, get_db, Base, SessionLocal
+from .database import get_db, SessionLocal
 
-Base.metadata.create_all(bind=engine)
+# Schema is managed by Alembic migrations (see backend/alembic/) — run
+# `alembic upgrade head` before starting the app, rather than relying on
+# create_all() here, so schema changes are tracked and reversible.
 
 app = FastAPI(
     title="Restaurant Ledger API",
@@ -99,7 +101,10 @@ def enrich_daily(e: models.DailyEntry) -> schemas.DailyEntryOut:
     out = schemas.DailyEntryOut.model_validate(e)
     out.total_sales = (e.lunch_sales or 0) + (e.dinner_sales or 0)
     out.total_guests = (e.lunch_guests or 0) + (e.dinner_guests or 0)
-    out.payment_total = (e.cash_payment or 0) + (e.cc_payment or 0) + (e.uber_payment or 0) + (e.rocket_payment or 0)
+    out.payment_total = (
+        (e.cash_payment or 0) + (e.cc_payment or 0) + (e.uber_payment or 0) + (e.rocket_payment or 0)
+        + (e.paypay_payment or 0) + (e.damaecan_payment or 0)
+    )
     return out
 
 
@@ -406,6 +411,8 @@ def dashboard_summary(
         "credit_card": sum(d.cc_payment or 0 for d in daily),
         "uber": sum(d.uber_payment or 0 for d in daily),
         "rocket": sum(d.rocket_payment or 0 for d in daily),
+        "paypay": sum(d.paypay_payment or 0 for d in daily),
+        "damaecan": sum(d.damaecan_payment or 0 for d in daily),
     }
 
     num_days = len(daily) or 1
@@ -558,6 +565,7 @@ def export_excel(
         "Total Sales": (d.lunch_sales or 0) + (d.dinner_sales or 0),
         "Shopping Expense": d.shopping_expense,
         "Cash": d.cash_payment, "Card": d.cc_payment, "Uber": d.uber_payment, "Rocket": d.rocket_payment,
+        "PayPay": d.paypay_payment, "DamaeCan": d.damaecan_payment,
         "Notes": d.notes,
     } for d in daily])
 

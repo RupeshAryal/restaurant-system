@@ -118,13 +118,13 @@ quick buttons to add a day's sales or an expense.
 ### Dashboard
 Business insights with a date-range filter: total sales, expenses, profit,
 profit margin, average monthly sales/profit, a monthly sales-vs-profit chart,
-and a payment-method breakdown (cash / card / Uber / Rocket). "Export to
+and a payment-method breakdown (cash / card / Uber / Rocket / PayPay / DamaeCan). "Export to
 Excel" downloads a multi-sheet workbook (summary, daily sales, expenses,
 salary) for the selected range.
 
 ### Income
 Every daily sales entry (lunch + dinner sales and guest counts, shopping
-expense, and the cash/card/Uber/Rocket payment split), filterable by date,
+expense, and the cash/card/Uber/Rocket/PayPay/DamaeCan payment split), filterable by date,
 with edit/delete.
 
 ### Expenses
@@ -141,7 +141,7 @@ deduction).
 ## 5. Daily data-entry workflow
 
 Whoever sends the daily numbers (SN, lunch sales/guests, dinner sales/guests,
-shopping expenses, cash/CC/Uber/Rocket payments) — the owner enters this once
+shopping expenses, cash/CC/Uber/Rocket/PayPay/DamaeCan payments) — the owner enters this once
 a day from **Home → "+ Add daily sales"** or the **Income** tab. It takes
 under a minute per day instead of the end-of-month manual tally. Other
 expenses (salary, rent, maintenance, etc.) go in under **Expenses** or
@@ -191,7 +191,7 @@ reverse proxy from section 3) under a process manager like `systemd` or
 - A daily sales entry is **one row per calendar day** (adding a second entry
   for a date you've already logged will ask you to edit the existing one
   instead).
-- The payment fields (cash/card/Uber/Rocket) are a breakdown of how the same
+- The payment fields (cash/card/Uber/Rocket/PayPay/DamaeCan) are a breakdown of how the same
   day's total sales were received — they're shown next to total sales rather
   than as separate income, so nothing gets double-counted.
 - "Shopping expense" is kept on the daily entry (matching how the raw data

@@ -1,4 +1,5 @@
 backend/restaurant.db
+backend/restaurant.db.bak-*
 __pycache__/
 *.pyc
 .venv/

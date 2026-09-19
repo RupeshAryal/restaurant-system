@@ -143,8 +143,11 @@ function SalesChart({ months }) {
 
 function BreakdownChart({ breakdown }) {
   const data = {
-    labels: ['Cash', 'Card', 'Uber', 'Rocket'],
-    datasets: [{ data: [breakdown.cash, breakdown.credit_card, breakdown.uber, breakdown.rocket], backgroundColor: ['#1C2438', '#3C6B52', '#AB4234', '#9c7423'] }],
+    labels: ['Cash', 'Card', 'Uber', 'Rocket', 'PayPay', 'DamaeCan'],
+    datasets: [{
+      data: [breakdown.cash, breakdown.credit_card, breakdown.uber, breakdown.rocket, breakdown.paypay, breakdown.damaecan],
+      backgroundColor: ['#1C2438', '#3C6B52', '#AB4234', '#9c7423', '#5b7c99', '#7c5c8c'],
+    }],
   }
   const options = {
     responsive: true,
